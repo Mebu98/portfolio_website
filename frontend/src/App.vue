@@ -13,8 +13,14 @@
 
 </script>
 
-<style>
+<style module>
+  @import "css/colors.css";
+
   #nav > * {
     margin-right: 30px;
+  }
+
+  body {
+    background: var(--main-bg-color);
   }
 </style>

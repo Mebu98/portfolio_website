@@ -1,6 +1,7 @@
-export const photos = [
+export const samplePhotos = [
     {
-        imgUrl: 'https://i.imgur.com/XwEdIgX.jpeg',
+        id: 0,
+        imgUrl: 'https://i.imgur.com/XwEdIgX',
         altText: `Photo of a small scottish mountain. 
         There is a stone fence in the middle of the image, 
         creating a separation between the well kept green grass in the bottom half of the image 
@@ -10,7 +11,8 @@ export const photos = [
         date: new Date('2024-09-08T12:12:12')
     },
     {
-        imgUrl: 'https://i.imgur.com/1mQ5zMk.jpeg',
+        id: 1,
+        imgUrl: 'https://i.imgur.com/1mQ5zMk',
         altText: `Photo of a small white japanese spitz sitting on green grass with an apple fence and road half a meter behind her.
         The dog is looking towards the left with a bored expression.`,
         title: 'The (not) very fierce guard dog Betty keeping watch!',
