@@ -2,11 +2,11 @@
 
   <ul id="imageList">
     <li v-for="photo in photos" :key="photo.imgUrl">
-      <img :src="photo.imgUrl+'t.jpg'" :alt="photo.altText" @click="selectedPhoto = photo">
+      <img :src="photo.imgUrl+'t.jpg'" :alt="photo.altText" @click="selectPhoto(photo)">
     </li>
   </ul>
 
-  <PhotoModal v-if="selectedPhoto != null" :selected-photo="selectedPhoto"/>
+  <PhotoModal v-if="modalOpen" v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
 </template>
 
 <script setup>
@@ -16,6 +16,13 @@
 
   const photos = samplePhotos;
   const selectedPhoto = ref();
+  const modalOpen = ref(false);
+
+  const selectPhoto = (photo) => {
+    modalOpen.value = true;
+    selectedPhoto.value = photo;
+    console.log(photo);
+  }
 </script>
 
 <script>

@@ -1,32 +1,35 @@
 <template>
-  <div v-if="visible" class="photoModal">
-    <div class="photoModalBackground" @click="visible = false"/>
+  <div v-if="selectedPhoto" class="photoModal">
+    <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
-      <img :src="selectedPhoto.imgUrl + '.jpg'" :alt="selectedPhoto.altText">
+      <input type="range" min="1" max="100" step="1" id="zoom" :value="zoom" @input="zoom = $event.target.value"/>
+      <img id="image" :src="selectedPhoto.imgUrl + '.jpg'" :alt="selectedPhoto.altText">
       <div id="imageInfo">
         <h2>Hello World</h2>
-        <p>Description </p>
+        <p>zoom: {{zoom}} </p>
       </div>
     </div>
   </div>
 </template>
 <script setup>
+
   import {ref} from "vue";
 
-  // eslint-disable-next-line no-undef
-  defineProps(['selectedPhoto']);
+  let zoom = ref(1);
 
-  // eslint-disable-next-line no-undef
-  const visible = ref(true);
 </script>
 
 <script>
 export default {
+  props: ['selectedPhoto'],
   name: "PhotoModal"
 }
 </script>
 
 <style scoped>
+#image{
+  scale: calc(v-bind('zoom') * 0.1);
+}
   .photoModal {
     left: 0;
     top: 0;
@@ -62,6 +65,6 @@ export default {
   }
 
   #imageInfo {
-    background: grey;
+    background: var(--main-bg-color);
   }
 </style>

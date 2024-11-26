@@ -1,0 +1,43 @@
+:root {
+    --main-bg-color: #f1f1f1;
+    --main-h1-color: #0f0f0f;
+    --main-h2-color: #0f0f0f;
+    --main-h3-color: #0f0f0f;
+    --main-p-color: #0f0f0f;
+    --main-span-color: #0f0f0f;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg-color: #0f0f0f;
+        --main-h1-color: #f1f1f1;
+        --main-h2-color: #f1f1f1;
+        --main-h3-color: #f1f1f1;
+        --main-p-color: #f1f1f1;
+        --main-span-color: #f1f1f1;
+    }
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+h1 {
+    color: var(--main-h1-color);
+}
+
+h2{
+    color: var(--main-h2-color);
+}
+
+h3{
+    color: var(--main-h3-color);
+}
+
+p {
+    color: var(--main-p-color);
+}
+
+span {
+    color: var(--main-span-color);
+}
