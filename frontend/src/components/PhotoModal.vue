@@ -2,24 +2,28 @@
   <div v-if="selectedPhoto" class="photoModal">
     <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
-      <input type="range" min="1" max="100" step="1" id="zoom" :value="zoom" @input="zoom = $event.target.value"/>
-      <img id="image" :src="selectedPhoto.imgUrl + '.jpg'" :alt="selectedPhoto.altText">
-      <div id="imageInfo">
-        <h2>Hello World</h2>
-        <p>zoom: {{zoom}} </p>
+      <div class="imageDiv">
+        <img id="image" :src="selectedPhoto.imgUrl + '.jpeg'" :alt="selectedPhoto.altText">
+        <a :href="selectedPhoto.imgUrl + '.jpeg'" target="_blank">Full image</a>
       </div>
+
+      <div id="imageInfo">
+        <h2>{{selectedPhoto.title}}</h2>
+        <p>{{
+            selectedPhoto.description === '' ? "No description" : selectedPhoto.description
+          }}</p>
+      </div>
+      <button style="height: 2rem; position: absolute; top: 10px; right: 10px" @click="$emit('close')" type="button">X</button>/
     </div>
   </div>
 </template>
+
 <script setup>
-
-  import {ref} from "vue";
-
-  let zoom = ref(1);
 
 </script>
 
 <script>
+
 export default {
   props: ['selectedPhoto'],
   name: "PhotoModal"
@@ -27,9 +31,7 @@ export default {
 </script>
 
 <style scoped>
-#image{
-  scale: calc(v-bind('zoom') * 0.1);
-}
+
   .photoModal {
     left: 0;
     top: 0;
@@ -51,6 +53,7 @@ export default {
 
   .modalContent{
     display: flex;
+    flex-flow: row;
     z-index: 2;
     gap: 10px;
     place-self: center;
@@ -58,10 +61,19 @@ export default {
     max-height: 95vh;
   }
 
-  .modalContent img {
-    max-width: 95vw;
-    max-height: 95vh;
+  .imageDiv img {
+    min-height: 10vh;
+    min-width: 10vw;
+    max-width: 75vw;
+    max-height: 90vh;
     object-fit: contain;
+  }
+
+  .imageDiv{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    margin-bottom: 10px;
   }
 
   #imageInfo {
