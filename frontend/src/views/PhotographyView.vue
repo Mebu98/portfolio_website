@@ -2,7 +2,7 @@
 
   <ul id="imageList">
     <li v-for="photo in photos" :key="photo.imgUrl">
-      <img :src="photo.imgUrl+'t.jpg'" :alt="photo.altText" @click="selectPhoto(photo)">
+      <img :src="imgKitEndpoint + `/tr:q-auto,w-400/` + photo.imgName" :alt="photo.altText" @click="selectPhoto(photo)">
     </li>
   </ul>
 
@@ -10,11 +10,10 @@
 </template>
 
 <script setup>
-  import {samplePhotos} from "@/sampleData";
   import PhotoModal from "@/components/PhotoModal";
   import {ref} from "vue";
+  import {imgKitEndpoint} from "@/config";
 
-  const photos = samplePhotos;
   const selectedPhoto = ref();
   const modalOpen = ref(false);
 
@@ -26,15 +25,37 @@
 </script>
 
 <script>
+import axios from "axios";
+import {baseUrl} from "@/config";
+
 export default {
   name: "PhotographyView",
+  data() {
+    return {
+      photos: {},
+    }
+  },
+  mounted() {
+    this.fetchPhotos();
+  },
+  methods: {
+    async fetchPhotos() {
+      try {
+        const response = await axios.get(`${baseUrl}/api/photos`);
+        console.log(response);
+        this.photos = response.data;
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
+  }
 }
+
 </script>
 
 <style scoped>
-
   #imageList img {
-    max-width: 100px;
+    width: 20%;
   }
-
 </style>

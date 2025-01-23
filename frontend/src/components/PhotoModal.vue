@@ -3,8 +3,8 @@
     <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
       <div class="imageDiv">
-        <img id="image" :src="selectedPhoto.imgUrl + '.jpeg'" :alt="selectedPhoto.altText">
-        <a :href="selectedPhoto.imgUrl + '.jpeg'" target="_blank">Full image</a>
+        <img id="image" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">
+        <a :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank">Full image</a>
       </div>
 
       <div id="imageInfo">
@@ -19,6 +19,9 @@
 </template>
 
 <script setup>
+import {imgKitEndpoint} from "@/config";
+
+const imageSettings = "/tr:q-20/"
 
 </script>
 
@@ -26,7 +29,7 @@
 
 export default {
   props: ['selectedPhoto'],
-  name: "PhotoModal"
+  name: "PhotoModal",
 }
 </script>
 
