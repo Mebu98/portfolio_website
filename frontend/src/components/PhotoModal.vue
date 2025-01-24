@@ -4,7 +4,7 @@
     <div class="modalContent">
       <div class="imageDiv">
         <img id="image" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">
-        <a :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank">Full image</a>
+        <a :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank"><button>Full image</button></a>
       </div>
 
       <div id="imageInfo">
@@ -13,7 +13,8 @@
             selectedPhoto.description === '' ? "No description" : selectedPhoto.description
           }}</p>
       </div>
-      <button style="height: 2rem; position: absolute; top: 10px; right: 10px" @click="$emit('close')" type="button">X</button>/
+
+      <button style="height: 2rem; position: absolute; top: 10px; right: 10px" @click="$emit('close')" type="button">X</button>
     </div>
   </div>
 </template>
@@ -54,10 +55,19 @@ export default {
     backdrop-filter: blur(10px);
   }
 
+
   .modalContent{
+
+    --background-color: rgba(0,0,0,0.2);
+
     display: flex;
     flex-flow: row;
     z-index: 2;
+
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 10px;
+
     gap: 10px;
     place-self: center;
     max-width: 95vw;
@@ -76,10 +86,7 @@ export default {
     display: flex;
     flex-direction: column;
     place-items: center;
-    margin-bottom: 10px;
   }
 
-  #imageInfo {
-    background: var(--main-bg-color);
-  }
+
 </style>

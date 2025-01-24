@@ -1,8 +1,8 @@
 <template>
   <nav id="nav">
-    <RouterLink to="/">Go to Home (currently goes to photography since there are no other categories)</RouterLink>
-    <RouterLink to="/photography">Go to Photography view</RouterLink>
-    <RouterLink to="/about">Go to About</RouterLink>
+    <RouterLink to="/"><button>Home</button></RouterLink>
+    <RouterLink to="/photography"><button>Photography</button></RouterLink>
+    <RouterLink to="/about"><button>About</button></RouterLink>
 
   </nav>
   <main>

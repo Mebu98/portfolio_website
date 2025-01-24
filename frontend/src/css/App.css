@@ -1,15 +1,23 @@
+/*
+ Colour codes:
+    #FFF0D1
+    #795757
+    #664343
+    #3B3030
+ */
+
 :root {
-    --main-bg-color: #f1f1f1;
-    --main-h1-color: #0f0f0f;
-    --main-h2-color: #0f0f0f;
-    --main-h3-color: #0f0f0f;
-    --main-p-color: #0f0f0f;
-    --main-span-color: #0f0f0f;
+    --main-bg-color: #FFF0D1;
+    --main-h1-color: #3B3030;
+    --main-h2-color: #3B3030;
+    --main-h3-color: #3B3030;
+    --main-p-color: #3B3030;
+    --main-span-color: #3B3030;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --main-bg-color: #0f0f0f;
+        --main-bg-color: #3B3030;
         --main-h1-color: #f1f1f1;
         --main-h2-color: #f1f1f1;
         --main-h3-color: #f1f1f1;
@@ -18,9 +26,31 @@
     }
 }
 
-body {
-    background-color: var(--main-bg-color);
+html {
+    /* Weird way of storing colors, but allows for changing alpha later! */
+    --dark: 125, 90, 90;
+    --med: #F1D1D1;
+    --light: #F3E1E1;
+
+    /* Fixes weird "tiling" at bottom*/
+    min-height: 100%;
+
+    background:
+
+        repeating-linear-gradient(45deg, rgba(var(--dark), 0.5) 0px, rgba(var(--dark), 0.5) 50px, transparent 50px, transparent 100px),
+        var(--med) repeating-linear-gradient(-45deg, rgba(var(--dark), 0.5) 0px, rgba(var(--dark), 0.5) 50px, transparent 50px, transparent 100px)
+    ;
+
 }
+
+/*body {*/
+/*    --stripe: #DCDCDC;*/
+/*    background: linear-gradient(135deg, var(--main-bg-color) 25%, transparent 25%) -50px 0,*/
+/*                linear-gradient(225deg, var(--main-bg-color) 25%, transparent 25%) -50px 0,*/
+/*                linear-gradient(315deg, var(--main-bg-color) 25%, transparent 25%) 0,*/
+/*                linear-gradient(45deg, var(--main-bg-color) 25%, transparent 25%) 0;*/
+/*    background-size: 100px 100px;*/
+/*}*/
 
 h1 {
     color: var(--main-h1-color);
