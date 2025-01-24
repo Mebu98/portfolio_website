@@ -26,48 +26,68 @@
     }
 }
 
+nav{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--main-bg-color);
+
+    display: flex;
+    justify-content: center;
+}
+
 html {
     /* Weird way of storing colors, but allows for changing alpha later! */
-    --dark: 125, 90, 90;
-    --med: #F1D1D1;
-    --light: #F3E1E1;
+    --dark: rgb(125, 90, 90);
+    --dark-values: 125, 90, 90;
+
+    --med: rgb(241, 209, 209);
+    --med-values: 241, 209, 209;
+
+    --light: rgb(243, 225, 225);
+    --light-values: 243, 225, 225;
 
     /* Fixes weird "tiling" at bottom*/
     min-height: 100%;
 
     background:
-
-        repeating-linear-gradient(45deg, rgba(var(--dark), 0.5) 0px, rgba(var(--dark), 0.5) 50px, transparent 50px, transparent 100px),
-        var(--med) repeating-linear-gradient(-45deg, rgba(var(--dark), 0.5) 0px, rgba(var(--dark), 0.5) 50px, transparent 50px, transparent 100px)
+        /*Found out background colors go in "reverse", so the one at the bottom is the "true" background,
+        while the others get placed on top that one in "bottom to top order". */
+        repeating-radial-gradient(transparent, rgba(0,0,0, .2)), /* Very slight vignette */
+        repeating-linear-gradient(45deg, color-mix(in srgb, var(--dark) 50%, transparent) 0px, color-mix(in srgb, var(--dark) 50%, transparent) 50px, transparent 50px, transparent 100px),
+        repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dark) 50%, transparent) 0px, color-mix(in srgb, var(--dark) 50%, transparent) 50px, transparent 50px, transparent 100px),
+        var(--med)
     ;
-
 }
 
-/*body {*/
-/*    --stripe: #DCDCDC;*/
-/*    background: linear-gradient(135deg, var(--main-bg-color) 25%, transparent 25%) -50px 0,*/
-/*                linear-gradient(225deg, var(--main-bg-color) 25%, transparent 25%) -50px 0,*/
-/*                linear-gradient(315deg, var(--main-bg-color) 25%, transparent 25%) 0,*/
-/*                linear-gradient(45deg, var(--main-bg-color) 25%, transparent 25%) 0;*/
-/*    background-size: 100px 100px;*/
-/*}*/
+main {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
 
 h1 {
     color: var(--main-h1-color);
+    text-shadow: 1px 1px var(--main-bg-color);
 }
 
 h2{
     color: var(--main-h2-color);
+    text-shadow: 1px 1px var(--main-bg-color);
 }
 
 h3{
     color: var(--main-h3-color);
+    text-shadow: 1px 1px var(--main-bg-color);
 }
 
 p {
     color: var(--main-p-color);
+    text-shadow: 1px 1px var(--main-bg-color);
 }
 
 span {
     color: var(--main-span-color);
+    text-shadow: 1px 1px var(--main-bg-color);
 }

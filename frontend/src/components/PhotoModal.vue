@@ -14,7 +14,7 @@
           }}</p>
       </div>
 
-      <button style="height: 2rem; position: absolute; top: 10px; right: 10px" @click="$emit('close')" type="button">X</button>
+      <button style="height: 2rem; position: static; top: 10px; right: 10px" @click="$emit('close')" type="button">X</button>
     </div>
   </div>
 </template>
@@ -50,21 +50,23 @@ export default {
 
   .photoModalBackground{
     position: fixed;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px);
+    min-width: 100%;
+    min-height: 100%;
+    backdrop-filter: blur(1px);
   }
 
 
   .modalContent{
+    --background-color: rgba(0,0,0,0.4);
 
-    --background-color: rgba(0,0,0,0.2);
+    overflow: auto;
 
     display: flex;
     flex-flow: row;
     z-index: 2;
 
     background-color: var(--background-color);
+    backdrop-filter: blur(5px);
     padding: 10px;
     border-radius: 10px;
 
@@ -75,8 +77,8 @@ export default {
   }
 
   .imageDiv img {
-    min-height: 10vh;
-    min-width: 10vw;
+    min-height: 20vh;
+    min-width: 20vw;
     max-width: 75vw;
     max-height: 90vh;
     object-fit: contain;
