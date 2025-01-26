@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import {imgKitEndpoint} from "@/config";
+import {imgKitEndpoint} from "../config";
 
 const imageSettings = "/tr:q-20/"
 

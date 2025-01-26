@@ -6,13 +6,15 @@
     </li>
   </ul>
 
+  <div style="height: 1000px">Dummy div to test scrollbar</div>
+
   <PhotoModal v-if="modalOpen" v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
 </template>
 
 <script setup>
-  import PhotoModal from "@/components/PhotoModal";
+  import PhotoModal from "../components/PhotoModal.vue";
   import {ref} from "vue";
-  import {imgKitEndpoint} from "@/config";
+  import {imgKitEndpoint} from "../config";
 
   const selectedPhoto = ref();
   const modalOpen = ref(false);
@@ -26,7 +28,7 @@
 
 <script>
 import axios from "axios";
-import {baseUrl} from "@/config";
+import {apiUrl} from "../config";
 
 export default {
   name: "PhotographyView",
@@ -41,7 +43,8 @@ export default {
   methods: {
     async fetchPhotos() {
       try {
-        const response = await axios.get(`${baseUrl}/api/photos`);
+        console.log("Fetching photos.");
+        const response = await axios.get(`${apiUrl}/api/photos`);
         console.log(response);
         this.photos = response.data;
       }
@@ -55,7 +58,13 @@ export default {
 </script>
 
 <style scoped>
+
+  #imageList{
+    width:auto;
+    height:auto;
+  }
+
   #imageList img {
-    width: 20%;
+    width: 20vw;
   }
 </style>

@@ -1,2 +1,3 @@
 export const imgKitEndpoint = "https://ik.imagekit.io/1gxqoihjm/";
-export const baseUrl = "http://localhost:5050";
+const apiPort = process.env.PORT || 5050;
+export const apiUrl = "http://localhost:" + apiPort;

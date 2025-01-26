@@ -33,38 +33,45 @@ nav{
     left: 0;
     background: var(--main-bg-color);
 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     display: flex;
     justify-content: center;
 }
 
 html {
-    /* Weird way of storing colors, but allows for changing alpha later! */
     --dark: rgb(125, 90, 90);
-    --dark-values: 125, 90, 90;
-
-    --med: rgb(241, 209, 209);
-    --med-values: 241, 209, 209;
-
+    /*--med: rgb(241, 209, 209);*/
+    --med: var(--main-h1-color);
     --light: rgb(243, 225, 225);
-    --light-values: 243, 225, 225;
+
+    margin-left: calc(100% - 100vw);
 
     /* Fixes weird "tiling" at bottom*/
     min-height: 100%;
 
+    /* Ugly but prevents stuff from shifting when a scrollbar pops up,
+    i.e background shift when going from a page with no scroll to one with scroll... */
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    overflow: auto;
+
+
     background:
         /*Found out background colors go in "reverse", so the one at the bottom is the "true" background,
         while the others get placed on top that one in "bottom to top order". */
-        repeating-radial-gradient(transparent, rgba(0,0,0, .2)), /* Very slight vignette */
-        repeating-linear-gradient(45deg, color-mix(in srgb, var(--dark) 50%, transparent) 0px, color-mix(in srgb, var(--dark) 50%, transparent) 50px, transparent 50px, transparent 100px),
-        repeating-linear-gradient(-45deg, color-mix(in srgb, var(--dark) 50%, transparent) 0px, color-mix(in srgb, var(--dark) 50%, transparent) 50px, transparent 50px, transparent 100px),
-        var(--med)
+        repeating-linear-gradient(45deg, color-mix(in srgb, var(--med) 20%, transparent) 0px, color-mix(in srgb, var(--med) 20%, transparent) 50px, transparent 50px, transparent 100px),
+        repeating-linear-gradient(-45deg, color-mix(in srgb, var(--med) 20%, transparent) 0px, color-mix(in srgb, var(--med) 20%, transparent) 50px, transparent 50px, transparent 100px),
+        var(--main-bg-color)
     ;
+
+    background-attachment: fixed;
 }
 
-main {
+app {
     display: flex;
     flex-direction: column;
-    justify-self: center;
+    justify-content: center;
 }
 
 h1 {

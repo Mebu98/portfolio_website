@@ -6,7 +6,11 @@
 
     "dev:backend": "cd ./backend/server && npm run dev",
     "dev:frontend": "cd ./frontend && npm run serve",
-    "dev:both": "concurrently -n \"BE,FE\" -c \"blue,red\" \"npm run dev:backend\" \"npm run dev:frontend\""
+    "dev:both": "concurrently -n \"BE,FE\" -c \"blue,red\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+
+    "install:backend": "cd ./backend/server && npm install",
+    "install:frontend": "cd ./frontend && npm install"
+    
   },
   "dependencies": {
     "concurrently": "^9.1.2"

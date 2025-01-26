@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import AboutView from "@/views/AboutView";
-import PhotographyView from "@/views/PhotographyView";
-import HomeView from "@/views/HomeView.vue";
+import AboutView from "./views/AboutView.vue";
+import PhotographyView from "./views/PhotographyView.vue";
+import HomeView from "./views/HomeView.vue";
 
 const routes = [
     // Fix with HomeView eventually when multiple "sub-sites" have been created.
