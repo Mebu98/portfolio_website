@@ -8,7 +8,9 @@ const routes = [
     // e.g HomeView should link to Photography, coding examples, games, and about etc.
     {path: '/', name: "Home", component: HomeView},
     {path: '/about', name: "About", component: AboutView},
-    {path: '/photography', name: "Photography", component: PhotographyView}
+    {path: '/photography', name: "Photography", component: PhotographyView},
+
+    // {path: "*", name: "catchAll", component: HomeView},
 ]
 
 
