@@ -12,11 +12,13 @@
     <h3>This is a h3</h3>
     <p>this is a p</p>
     <span>this is a span</span>
+    <p>this is the API url:{{apiUrl}}</p>
   </main>
 </template>
 
 <script setup>
 
+import {apiUrl} from "./config";
 </script>
 
 <style module>
