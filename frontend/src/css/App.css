@@ -1,51 +1,24 @@
-/*
- Colour codes:
-    #FFF0D1
-    #795757
-    #664343
-    #3B3030
- */
-
 :root {
-    --main-bg-color: #FFF0D1;
-    --main-h1-color: #3B3030;
-    --main-h2-color: #3B3030;
-    --main-h3-color: #3B3030;
-    --main-p-color: #3B3030;
-    --main-span-color: #3B3030;
+    --main-bg-color: #ffffff;
+    --alt1-bg-color: #050505;
+    --base-text-color: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --main-bg-color: #3B3030;
-        --main-h1-color: #f1f1f1;
-        --main-h2-color: #f1f1f1;
-        --main-h3-color: #f1f1f1;
-        --main-p-color: #f1f1f1;
-        --main-span-color: #f1f1f1;
+        --main-bg-color: #0a0a0a;
+        --alt1-bg-color: #eaeaea;
+        --base-text-color: #eeeeee;
     }
 }
 
-nav{
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: var(--main-bg-color);
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    display: flex;
-    justify-content: center;
-}
 
 html {
-    --dark: rgb(125, 90, 90);
-    /*--med: rgb(241, 209, 209);*/
-    --med: var(--main-h1-color);
-    --light: rgb(243, 225, 225);
+    --main: var(--main-bg-color);
+    --alt1: var(--alt1-bg-color);
 
-    margin-left: calc(100% - 100vw);
+    --color-opacity: 4%;
+
 
     /* Fixes weird "tiling" at bottom*/
     min-height: 100%;
@@ -56,45 +29,43 @@ html {
     scrollbar-width: thin;
     overflow: auto;
 
-
     background:
         /*Found out background colors go in "reverse", so the one at the bottom is the "true" background,
         while the others get placed on top that one in "bottom to top order". */
-        repeating-linear-gradient(45deg, color-mix(in srgb, var(--med) 20%, transparent) 0px, color-mix(in srgb, var(--med) 20%, transparent) 50px, transparent 50px, transparent 100px),
-        repeating-linear-gradient(-45deg, color-mix(in srgb, var(--med) 20%, transparent) 0px, color-mix(in srgb, var(--med) 20%, transparent) 50px, transparent 50px, transparent 100px),
+        /*repeating-linear-gradient(45deg, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 0px, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 50px, transparent 50px, transparent 100px),*/
+        /*repeating-linear-gradient(-45deg, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 0px, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 50px, transparent 50px, transparent 100px),*/
         var(--main-bg-color)
     ;
 
     background-attachment: fixed;
 }
 
-app {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 h1 {
-    color: var(--main-h1-color);
-    text-shadow: 1px 1px var(--main-bg-color);
+    color: var(--base-text-color);
 }
 
 h2{
-    color: var(--main-h2-color);
-    text-shadow: 1px 1px var(--main-bg-color);
+    color: var(--base-text-color);
 }
 
 h3{
-    color: var(--main-h3-color);
-    text-shadow: 1px 1px var(--main-bg-color);
+    color: var(--base-text-color);
 }
 
 p {
-    color: var(--main-p-color);
-    text-shadow: 1px 1px var(--main-bg-color);
+    color: var(--base-text-color);
 }
 
 span {
-    color: var(--main-span-color);
-    text-shadow: 1px 1px var(--main-bg-color);
+    color: var(--base-text-color);
+}
+
+main{
+    display: flex;
+
+    align-items: center;
+
+    min-width: 90vw;
+
+    flex-direction: column;
 }

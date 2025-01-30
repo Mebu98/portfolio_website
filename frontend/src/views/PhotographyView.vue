@@ -6,15 +6,13 @@
     </li>
   </ul>
 
-  <div style="height: 1000px">Dummy div to test scrollbar</div>
-
   <PhotoModal v-if="modalOpen" v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
 </template>
 
 <script setup>
   import PhotoModal from "../components/PhotoModal.vue";
   import {ref} from "vue";
-  import {imgKitEndpoint} from "../config";
+  import {imgKitEndpoint} from "@/config";
 
   const selectedPhoto = ref();
   const modalOpen = ref(false);
@@ -28,7 +26,7 @@
 
 <script>
 import axios from "axios";
-import {apiUrl} from "../config";
+import {apiUrl} from "@/config";
 
 export default {
   name: "PhotographyView",
