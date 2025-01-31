@@ -41,7 +41,7 @@ export default {
   methods: {
     async fetchPhotos() {
       try {
-        console.log("Fetching photos.");
+        console.log(`Fetching photos from ${apiUrl}.`);
         const response = await axios.get(`${apiUrl}/api/photos`);
         console.log(response);
         this.photos = response.data;
@@ -58,11 +58,15 @@ export default {
 <style scoped>
 
   #imageList{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%);
+
+    list-style: none;
     width:auto;
     height:auto;
   }
 
   #imageList img {
-    width: 20vw;
+    width: 100%;
   }
 </style>

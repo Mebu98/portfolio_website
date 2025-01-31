@@ -10,7 +10,7 @@ const routes = [
     {path: '/about', name: "About", component: AboutView},
     {path: '/photography', name: "Photography", component: PhotographyView},
 
-    // {path: "*", name: "catchAll", component: HomeView},
+    {path: "/*", name: "catchAll", component: HomeView},
 ]
 
 

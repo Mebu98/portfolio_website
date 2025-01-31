@@ -1,3 +1,16 @@
+@property --w_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vw;
+}
+
+@property --h_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vh;
+}
+
+
 :root {
     --main-bg-color: #ffffff;
     --alt1-bg-color: #050505;
@@ -11,7 +24,6 @@
         --base-text-color: #eeeeee;
     }
 }
-
 
 html {
     --main: var(--main-bg-color);
