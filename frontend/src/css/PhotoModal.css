@@ -1,0 +1,80 @@
+
+.photoModal {
+    position: fixed;
+    display: flex;
+    vertical-align: middle;
+    margin-top: 1%;
+    z-index: 1;
+    max-height: calc(var(--h_raw) * 0.95);
+    max-width: calc(var(--w_raw) * 0.95);
+}
+
+.photoModalBackground{
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: var(--w_raw);
+    min-height: var(--h_raw);
+    backdrop-filter: blur(1px);
+}
+
+
+.modalContent{
+    --background-color: rgba(0,0,0,0.5);
+
+    overflow: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    z-index: 2;
+
+    background-color: color-mix(in srgb, var(--main-bg-color) 90%, transparent);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+
+    gap: 10px;
+
+    max-height: calc(var(--h_raw) * 0.95);
+    max-width: calc(var(--w_raw) * 0.95);
+
+    box-shadow: 0 0 25px 0 color-mix(in srgb, var(--alt1-bg-color) 10%, transparent);
+    box-sizing: border-box;
+}
+
+
+#image{
+    max-height: calc(var(--h_raw) * 0.90);
+    max-width: calc(var(--w_raw) * 0.70);
+    object-fit: contain;
+
+}
+
+/* imageDiv includes the image and the full image button*/
+.imageDiv{
+    display: grid;
+    place-items: center;
+
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* imageInfo is the info on the right side of the image. Title, description etc.*/
+#imageInfo{
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#closeButton{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 30%;
+    right: 5px;
+    top: 5px;
+}
+
