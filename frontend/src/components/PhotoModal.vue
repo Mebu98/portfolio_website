@@ -12,9 +12,10 @@
         <p>{{
             selectedPhoto.description === '' ? "No description" : selectedPhoto.description
           }}</p>
-      </div>
 
-      <button style="height: 2rem; position: static; top: 10px; right: 10px" @click="$emit('close')" type="button">X</button>
+        <button id="closeButton" @click="$emit('close')" type="button">X</button>
+
+      </div>
     </div>
   </div>
 </template>
@@ -35,70 +36,5 @@ export default {
 </script>
 
 <style scoped>
-
-  .photoModal {
-    position: fixed;
-    display: flex;
-    vertical-align: middle;
-    margin-top: 1%;
-    z-index: 1;
-    max-height: calc(var(--h_raw) * 0.95);
-    max-width: calc(var(--w_raw) * 0.95);
-  }
-
-  .photoModalBackground{
-    position: fixed;
-    left: 0;
-    top: 0;
-    min-width: var(--w_raw);
-    min-height: var(--h_raw);
-    backdrop-filter: blur(1px);
-  }
-
-
-  .modalContent{
-    --background-color: rgba(0,0,0,0.4);
-
-    overflow: auto;
-
-    display: flex;
-    flex-direction: row;
-
-    justify-content: center;
-
-    z-index: 2;
-
-    background-color: var(--background-color);
-    backdrop-filter: blur(5px);
-    padding: 10px;
-    border-radius: 10px;
-
-    gap: 10px;
-
-    max-height: calc(var(--h_raw) * 0.95);
-    max-width: calc(var(--w_raw) * 0.95);
-  }
-
-
-  #image{
-    max-height: calc(var(--h_raw) * 0.90);
-    max-width: calc(var(--w_raw) * 0.70);
-    object-fit: contain;
-
-  }
-
-  .imageDiv{
-    display: grid;
-    place-items: center;
-
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  #imageInfo{
-    width: 30%;
-    background-color: color-mix(in srgb, var(--main-bg-color) 10%);
-  }
-
-
+  @import "../css/PhotoModal.css";
 </style>

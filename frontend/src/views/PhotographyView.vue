@@ -2,7 +2,7 @@
 
   <ul id="imageList">
     <li v-for="photo in photos" :key="photo.imgUrl">
-      <img :src="imgKitEndpoint + `/tr:q-auto,w-400/` + photo.imgName" :alt="photo.altText" @click="selectPhoto(photo)">
+      <img class="thumbnail" :src="imgKitEndpoint + `/tr:q-auto,w-500/` + photo.imgName" :alt="photo.altText" @click="selectPhoto(photo)">
     </li>
   </ul>
 
@@ -56,17 +56,5 @@ export default {
 </script>
 
 <style scoped>
-
-  #imageList{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 50%);
-
-    list-style: none;
-    width:auto;
-    height:auto;
-  }
-
-  #imageList img {
-    width: 100%;
-  }
+  @import "../css/PhotographyView.css";
 </style>
