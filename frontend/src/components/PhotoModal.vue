@@ -22,7 +22,7 @@
 <script setup>
 import {imgKitEndpoint} from "../config";
 
-const imageSettings = "/tr:q-20/"
+const imageSettings = "/tr:q-auto/"
 
 </script>
 
@@ -37,21 +37,21 @@ export default {
 <style scoped>
 
   .photoModal {
-    left: 0;
-    top: 0;
-    display: flex;
-    z-index: 1;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-
-    place-content: center;
+    display: flex;
+    vertical-align: middle;
+    margin-top: 1%;
+    z-index: 1;
+    max-height: calc(var(--h_raw) * 0.95);
+    max-width: calc(var(--w_raw) * 0.95);
   }
 
   .photoModalBackground{
     position: fixed;
-    min-width: 100%;
-    min-height: 100%;
+    left: 0;
+    top: 0;
+    min-width: var(--w_raw);
+    min-height: var(--h_raw);
     backdrop-filter: blur(1px);
   }
 
@@ -62,7 +62,10 @@ export default {
     overflow: auto;
 
     display: flex;
-    flex-flow: row;
+    flex-direction: row;
+
+    justify-content: center;
+
     z-index: 2;
 
     background-color: var(--background-color);
@@ -71,23 +74,30 @@ export default {
     border-radius: 10px;
 
     gap: 10px;
-    place-self: center;
-    max-width: 95vw;
-    max-height: 95vh;
+
+    max-height: calc(var(--h_raw) * 0.95);
+    max-width: calc(var(--w_raw) * 0.95);
   }
 
-  .imageDiv img {
-    min-height: 20vh;
-    min-width: 20vw;
-    max-width: 75vw;
-    max-height: 90vh;
+
+  #image{
+    max-height: calc(var(--h_raw) * 0.90);
+    max-width: calc(var(--w_raw) * 0.70);
     object-fit: contain;
+
   }
 
   .imageDiv{
-    display: flex;
-    flex-direction: column;
+    display: grid;
     place-items: center;
+
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  #imageInfo{
+    width: 30%;
+    background-color: color-mix(in srgb, var(--main-bg-color) 10%);
   }
 
 
