@@ -6,9 +6,7 @@
     </li>
   </ul>
 
-  <div v-if="modalOpen">
-    <PhotoModal v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
-  </div>
+  <PhotoModal v-if="modalOpen" v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
 </template>
 
 <script setup>
