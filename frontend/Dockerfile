@@ -1,27 +1,11 @@
-FROM node:23-alpine
-
-RUN npm install -g http-server
-
-WORKDIR /home/node/app
-
-COPY ../frontend .
-COPY .env.production .
-
-RUN chown -R node:node /home/node/app
-USER "node"
+FROM node:latest as build-stage
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-RUN npm run production
+COPY ./ .
+RUN npm run build
 
-RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["./entrypoint.sh"]
-
-## No need to bloat image with node_modules from vue-cli etc?
-##TODO: tranfer to VITE ?
-#RUN rm -fr node_modules
-
-
-EXPOSE 8080
-CMD ["npm", "run", "serve"]
-
-
-
+FROM nginx as production-stage
+RUN mkdir /app
+COPY --from=build-stage /app/dist /app
+COPY nginx.conf /etc/nginx/nginx.conf
