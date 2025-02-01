@@ -4,7 +4,7 @@ RUN npm install -g http-server
 
 WORKDIR /home/node/app
 
-COPY . .
+COPY ../frontend .
 COPY .env.production .
 
 RUN chown -R node:node /home/node/app

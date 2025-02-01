@@ -6,13 +6,15 @@
     </li>
   </ul>
 
-  <PhotoModal v-if="modalOpen" v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
+  <div v-if="modalOpen">
+    <PhotoModal v-bind:selected-photo="selectedPhoto" @close="modalOpen = false"/>
+  </div>
 </template>
 
 <script setup>
   import PhotoModal from "../components/PhotoModal.vue";
   import {ref} from "vue";
-  import {imgKitEndpoint} from "@/config";
+  import {imgKitEndpoint} from "../config.js";
 
   const selectedPhoto = ref();
   const modalOpen = ref(false);
@@ -26,7 +28,7 @@
 
 <script>
 import axios from "axios";
-import {apiUrl} from "@/config";
+import {apiUrl} from "../config.js";
 
 export default {
   name: "PhotographyView",
@@ -55,6 +57,6 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
   @import "../css/PhotographyView.css";
 </style>
