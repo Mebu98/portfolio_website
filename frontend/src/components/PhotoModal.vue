@@ -1,5 +1,5 @@
 <template>
-  <div v-if="selectedPhoto" class="photoModal">
+  <div class="photoModal">
     <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
       <div class="imageDiv">
@@ -10,10 +10,10 @@
       <div id="imageInfo">
         <h2>{{selectedPhoto.title}}</h2>
         <p>{{
-            selectedPhoto.description === '' ? "No description" : selectedPhoto.description
+            selectedPhoto.description === undefined ? "No description" : selectedPhoto.description
           }}</p>
 
-        <button id="closeButton" @click="$emit('close')" type="button">X</button>
+<!--        <button id="closeButton" @click="$emit('close')" type="button">X</button>-->
 
       </div>
     </div>
@@ -21,10 +21,9 @@
 </template>
 
 <script setup>
-import {imgKitEndpoint} from "../config";
+import {imgKitEndpoint} from "../config.js";
 
 const imageSettings = "/tr:q-auto/"
-
 </script>
 
 <script>
