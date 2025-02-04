@@ -3,7 +3,7 @@
     <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
       <div class="imageDiv">
-        <img id="image" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">
+        <img id="photo" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">
         <a :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank"><button>Full image</button></a>
       </div>
 
