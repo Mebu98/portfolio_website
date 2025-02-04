@@ -74,10 +74,8 @@ span {
 
 main{
     display: flex;
-
+    justify-content: center;
     align-items: center;
 
-    min-width: 90vw;
-
-    flex-direction: column;
+    min-width: max(calc(var(--w_raw) * 0.90), 90vw);
 }

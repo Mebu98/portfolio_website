@@ -2,7 +2,7 @@
 
   <ul id="imageList">
     <li v-for="photo in photos" :key="photo.imgUrl">
-      <img class="thumbnail" :src="imgKitEndpoint + `/tr:q-auto,w-500/` + photo.imgName" :alt="photo.altText" @click="selectPhoto(photo)">
+      <img class="thumbnail" :src="imgKitEndpoint + `/tr:q-auto,w-500,h-600/` + photo.imgName" :alt="photo.altText" @click="selectPhoto(photo)">
     </li>
   </ul>
 

@@ -2,18 +2,16 @@
   <div class="photoModal">
     <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
-      <div class="imageDiv">
-        <img id="photo" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">
-        <a :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank"><button>Full image</button></a>
-      </div>
+
+      <img id="photo" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">
 
       <div id="imageInfo">
         <h2>{{selectedPhoto.title}}</h2>
         <p>{{
             selectedPhoto.description === undefined ? "No description" : selectedPhoto.description
           }}</p>
-
-<!--        <button id="closeButton" @click="$emit('close')" type="button">X</button>-->
+        <a id="photoLink" :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank"><button>Full image</button></a>
+        <!--        <button id="closeButton" @click="$emit('close')" type="button">X</button>-->
 
       </div>
     </div>

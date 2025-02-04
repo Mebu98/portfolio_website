@@ -3,7 +3,7 @@
     <RouterLink to="/">
       <button>Home</button>
     </RouterLink>
-    <div id="hello">
+    <div id="left-buttons">
       <RouterLink to="/photography">
         <button>Photography</button>
       </RouterLink>

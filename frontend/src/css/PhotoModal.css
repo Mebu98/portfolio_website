@@ -4,16 +4,15 @@
     }
 
     #photo{
-        max-height: calc(var(--h_raw) * 0.70);
-        max-width: calc(var(--w_raw) * 0.90);
+        max-height: max(calc(var(--h_raw) * 0.70), 70vh);
+        max-width: max(calc(var(--w_raw) * 0.90), 90vw);
     }
 
     #imageInfo{
-        width: 90%;
+        max-width: 90%;
         text-align: center;
         align-self: center;
     }
-
 }
 
 @media (orientation: landscape) {
@@ -22,12 +21,24 @@
     }
 
     #photo{
-        max-height: calc(var(--h_raw) * 0.90);
-        max-width: calc(var(--w_raw) * 0.70);
+        max-height: max(calc(var(--h_raw) * 0.90), 90vh);
+        max-width: max(calc(var(--w_raw) * 0.80), 80vw);
     }
 
     #imageInfo{
-        width: 30%
+        max-width: 30%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #imageInfo a {
+        align-self: center;
+        position: absolute;
+        bottom: 2rem;
+    }
+
+    #imageInfo a button{
+        opacity: 75%;
     }
 }
 
@@ -35,10 +46,12 @@
     position: fixed;
     display: flex;
     z-index: 1;
-    height: calc(var(--h_raw) * 0.95);
-    width: calc(var(--w_raw) * 0.95);
+    max-height: max(calc(var(--h_raw) * 0.95), 95vh);
+    max-width: max(calc(var(--w_raw) * 0.95), 95vw);
 
-    place-content: center;
+    top: 50vh;
+    right: 50vw;
+    transform: translate(50%, -50%);
 }
 
 .photoModalBackground{
@@ -51,14 +64,12 @@
 }
 
 
-
 .modalContent{
 
     overflow: auto;
     display: flex;
-    justify-content: center;
 
-    place-self: center;
+    place-content: center;
 
     z-index: 2;
 
@@ -79,17 +90,8 @@
 
 #photo{
     object-fit: contain;
-
 }
 
-/* imageDiv includes the image and the full image button*/
-.imageDiv{
-    display: grid;
-    place-items: center;
-
-    max-width: 100%;
-    max-height: 100%;
-}
 
 /* imageInfo is the title, description etc.*/
 #imageInfo{
