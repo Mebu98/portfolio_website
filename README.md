@@ -1,7 +1,5 @@
 # Mebu's Portfolio Website
 
-The website should be up [here](#https://mebu98.no/)
-
 <!-- Toc start -->
 ## Table of Contents
 - [The Stack](#the-stack)
