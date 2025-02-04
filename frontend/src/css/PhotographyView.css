@@ -7,8 +7,8 @@
     display: grid;
 
 
-    grid-template-columns: repeat(3, minmax(30%, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(3, minmax(25%, 1fr));
+    grid-gap: 3%;
 
     max-width: max(calc(var(--w_raw) * 0.85), 85vw);
     min-width: max(calc(var(--w_raw) * 0.50), 50vw);
@@ -31,8 +31,6 @@
 }
 
 .thumbnail:hover {
-
-
     transform: scale(1.1);
     box-shadow: 0 0 15px 0 color-mix(in srgb, var(--alt1-bg-color) 10%, transparent);
 }

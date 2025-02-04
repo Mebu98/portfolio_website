@@ -45,10 +45,8 @@
 .photoModal {
     position: fixed;
     display: flex;
-    z-index: 1;
     max-height: max(calc(var(--h_raw) * 0.95), 95vh);
     max-width: max(calc(var(--w_raw) * 0.95), 95vw);
-
     top: 50vh;
     right: 50vw;
     transform: translate(50%, -50%);
@@ -60,7 +58,7 @@
     top: 0;
     width: var(--w_raw);
     height: var(--h_raw);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(3px);
 }
 
 
@@ -70,8 +68,6 @@
     display: flex;
 
     place-content: center;
-
-    z-index: 2;
 
     background-color: color-mix(in srgb, var(--main-bg-color) 70%, transparent);
     backdrop-filter: blur(5px);
@@ -101,11 +97,13 @@
 }
 
 #closeButton{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    opacity: 30%;
+    position: fixed;
+    width: min(2rem, 5vw);
+    height: min(2rem, 5vw);
+    opacity: 50%;
     right: 5px;
     top: 5px;
+    padding: 0;
+    margin: 0;
 }
 
