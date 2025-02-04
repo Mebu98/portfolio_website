@@ -1,6 +1,6 @@
 <template>
+  <div class="photoModalBackground" @click="$emit('close')"/>
   <div class="photoModal">
-    <div class="photoModalBackground" @click="$emit('close')"/>
     <div class="modalContent">
 
       <img id="photo" :src="imgKitEndpoint + imageSettings + selectedPhoto.imgName" :alt="selectedPhoto.altText">

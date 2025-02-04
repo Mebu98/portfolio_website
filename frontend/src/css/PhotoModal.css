@@ -5,7 +5,7 @@
 
     #photo{
         max-height: max(calc(var(--h_raw) * 0.70), 70vh);
-        max-width: max(calc(var(--w_raw) * 0.90), 90vw);
+        max-width: max(calc(var(--w_raw) * 0.95), 95vw);
     }
 
     #imageInfo{
@@ -21,8 +21,8 @@
     }
 
     #photo{
-        max-height: max(calc(var(--h_raw) * 0.90), 90vh);
-        max-width: max(calc(var(--w_raw) * 0.80), 80vw);
+        max-height: max(calc(var(--h_raw) * 0.95), 95vh);
+        max-width: max(calc(var(--w_raw) * 0.70), 70vw);
     }
 
     #imageInfo{
@@ -58,8 +58,8 @@
     position: fixed;
     left: 0;
     top: 0;
-    min-width: var(--w_raw);
-    min-height: var(--h_raw);
+    width: var(--w_raw);
+    height: var(--h_raw);
     backdrop-filter: blur(1px);
 }
 
