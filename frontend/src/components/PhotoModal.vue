@@ -11,14 +11,14 @@
         <a id="photoLink" :href="imgKitEndpoint + selectedPhoto.imgName" target="_blank"><button>Full image</button></a>
       </div>
     </div>
+    <button id="closeButton" @click="$emit('close')" type="button">X</button>
   </div>
-  <button id="closeButton" @click="$emit('close')" type="button">X</button>
 </template>
 
 <script setup>
 import {imgKitEndpoint} from "../config.js";
 
-const imageSettings = "/tr:q-auto/"
+const imageSettings = "/tr:q-auto,w-auto/"
 </script>
 
 <script>

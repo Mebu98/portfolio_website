@@ -46,8 +46,8 @@ html {
     background:
         /*Found out background colors go in "reverse", so the one at the bottom is the "true" background,
         while the others get placed on top that one in "bottom to top order". */
-        /*repeating-linear-gradient(45deg, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 0px, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 50px, transparent 50px, transparent 100px),*/
-        /*repeating-linear-gradient(-45deg, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 0px, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 50px, transparent 50px, transparent 100px),*/
+        repeating-linear-gradient(45deg, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 0px, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 50px, transparent 50px, transparent 100px),
+        repeating-linear-gradient(-45deg, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 0px, color-mix(in srgb, var(--alt1) var(--color-opacity), transparent) 50px, transparent 50px, transparent 100px),
         var(--main-bg-color)
     ;
 
@@ -74,10 +74,22 @@ span {
     color: var(--base-text-color);
 }
 
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    min-width: max(calc(var(--w_raw) * 0.90), 90vw);
+
+main{
+    position: absolute;
+
+
+    inset: 0;
+    max-width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0 1rem 0 1rem;
+
+    background-color: color-mix(in srgb, var(--main-bg-color) 75%, transparent);
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+
 }

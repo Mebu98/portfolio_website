@@ -1,3 +1,5 @@
+
+
 #imageList {
     list-style: none;
     position: static;
@@ -8,14 +10,20 @@
 
 
     grid-template-columns: repeat(3, minmax(25%, 1fr));
-    grid-gap: 3%;
+    grid-gap: 2rem;
 
-    max-width: max(calc(var(--w_raw) * 0.85), 85vw);
-    min-width: max(calc(var(--w_raw) * 0.50), 50vw);
+    width: calc(var(--w_raw) * .8);
 
 
     margin-top: 2rem;
 }
+
+@media (orientation: landscape) {
+    #imageList{
+        width: calc(var(--w_raw) * .6);
+    }
+}
+
 
 .thumbnail {
     cursor: zoom-in;

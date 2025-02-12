@@ -62,6 +62,7 @@ and alt-text is currently on MongoDB.
 - Motivation...
 - Changing ENV variables during runtime.
 - The usual CSS and having things play nice with each other.
+- Developing for a mobile friendly viewing experience.
 - 
 
 ## Plans for the future & ideas

@@ -5,7 +5,7 @@
     "start:both": "concurrently -n \"BE,FE\" -c \"blue,red\" \"npm run start:backend\" \"npm run start:frontend\"",
 
     "dev:backend": "cd ./backend/server && npm run dev",
-    "dev:frontend": "cd ./frontend && npm run serve",
+    "dev:frontend": "cd ./frontend && npm run dev",
     "dev:both": "concurrently -n \"BE,FE\" -c \"blue,red\" \"npm run dev:backend\" \"npm run dev:frontend\"",
 
     "install:backend": "cd ./backend/server && npm install",

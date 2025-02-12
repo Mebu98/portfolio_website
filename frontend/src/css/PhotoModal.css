@@ -97,12 +97,12 @@
 }
 
 #closeButton{
-    position: fixed;
+    position: absolute;
     width: min(2rem, 5vw);
     height: min(2rem, 5vw);
     opacity: 50%;
-    right: 5px;
-    top: 5px;
+    right: 1%;
+    top: 1%;
     padding: 0;
     margin: 0;
 }
