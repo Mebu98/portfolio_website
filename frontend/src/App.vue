@@ -1,6 +1,6 @@
 <template>
   <main>
-    <RouterView id="RouterView"/>
+    <RouterView/>
   </main>
 
   <!-- Bit weird having the NavBar here considering it's on the top of the page,

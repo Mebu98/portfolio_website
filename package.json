@@ -9,7 +9,8 @@
     "dev:both": "concurrently -n \"BE,FE\" -c \"blue,red\" \"npm run dev:backend\" \"npm run dev:frontend\"",
 
     "install:backend": "cd ./backend/server && npm install",
-    "install:frontend": "cd ./frontend && npm install"
+    "install:frontend": "cd ./frontend && npm install",
+    "install:both": "concurrently -n \"BE,FE\" -c \"blue,red\" \"npm run install:backend\" \"npm run install:frontend\""
     
   },
   "dependencies": {
