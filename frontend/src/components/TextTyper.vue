@@ -12,9 +12,13 @@
         type: Array,
         required: true
       },
-      wait: {
+      minWait: {
         type: Number,
-        default: 3000,
+        default: 2000,
+      },
+      maxWait: {
+        type: Number,
+        default: 4000,
       },
       minSpeed:{
         type: Number,
@@ -32,9 +36,10 @@
     data(){
       return {
         text: "",
+        wait: this.minWait,
         textIndex: 0,
         shownText: '',
-        blinking: false,
+        blinking: true,
         opacity: 0
       }
     },
@@ -44,7 +49,12 @@
         this.text = text
         let shownText = this.shownText
         this.blinkCursor()
-        this.typeText(text, shownText)
+        setTimeout(() => {
+          this.typeText(text, shownText)
+        }, this.wait)
+      },
+      randomizeWait(){
+        this.wait = (Math.random() * (this.maxWait - this.minWait)) + this.minWait;
       },
       typeText(text, shownText) {
         if (shownText.length < text.length) {
@@ -57,6 +67,7 @@
         }
         else{
           this.blinking = true
+          this.randomizeWait()
           setTimeout(() => {this.removeText(shownText)}, this.wait)
         }
       },
@@ -73,6 +84,7 @@
           this.blinking = true;
           this.textIndex = (this.textIndex + 1) % this.texts.length
           this.text = this.texts[this.textIndex]
+          this.randomizeWait()
           setTimeout(() => {this.typeText(this.text, this.shownText)}, this.wait)
         }
       },
