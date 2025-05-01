@@ -2,14 +2,43 @@ nav{
     position: fixed;
     display: flex;
     width: 100vw;
+    height: var(--nav-height);
     top: 0;
+    left: 0;
     background: var(--main-bg-color);
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 
 }
 
-#left-buttons{
+.a{
+    position: relative;
+    height: var(--nav-height);
+    place-content: center;
+    border-radius: 3px;
+    padding: 0 5px 0 5px;
+    box-shadow: 0 0 8px 0 color-mix(in srgb, var(--alt1) 5%, transparent);
+    transition: ease-in-out 0.4s;
+}
+.a:hover{
+    background:  color-mix(in srgb, var(--alt1) 10%, transparent);
+
+}
+
+.a:active {
+    transition: 0.1s;
+    background:  color-mix(in srgb, var(--alt1) 50%, transparent);
+}
+
+#rightButtons{
     position: inherit;
-    right: 0;
+    right: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: .1em;
+}
+
+#home{
+    position: inherit;
+    left: 1em;
 }
