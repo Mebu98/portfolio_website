@@ -79,7 +79,6 @@ span {
 main{
     position: absolute;
 
-
     inset: 0;
     max-width: fit-content;
     height: fit-content;
@@ -91,5 +90,15 @@ main{
     background-color: color-mix(in srgb, var(--main-bg-color) 75%, transparent);
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
 
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 50vw;
+    transform: translateX(-50%);
+}
+
+footer > * {
+    margin: 0;
 }

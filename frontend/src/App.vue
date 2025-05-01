@@ -1,11 +1,13 @@
 <template>
   <main>
-    <RouterView id="RouterView"/>
+    <RouterView/>
   </main>
-
   <!-- Bit weird having the NavBar here considering it's on the top of the page,
        but it prevents having to play around with Z-index in css. -->
   <NavBar/>
+  <footer>
+    <p>Website still under construction</p>
+  </footer>
 </template>
 
 <script setup>
