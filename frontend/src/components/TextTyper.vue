@@ -1,23 +1,38 @@
 
 
 <template>
-    <span id="text">{{shownText}}<span id="textCursor">&nbsp;</span></span>
+  <span id="movingText">{{shownText}}</span><span id="textCursor">&nbsp;</span>
 </template>
 
 <script>
   export default {
     name: 'TextTyper',
     props: {
-      text: {
-        type: String,
+      texts: {
+        type: Array,
         required: true
+      },
+      wait: {
+        type: Number,
+        default: 3000,
+      },
+      minSpeed:{
+        type: Number,
+        default: 42,
+      },
+      maxSpeed:{
+        type: Number,
+        default: 69
+      },
+      blinkSpeed:{
+        type: Number,
+        default: 400
       }
     },
     data(){
       return {
-        minSpeed: 42,
-        maxSpeed: 69,
-        waitForNextTime: 3000,
+        text: "",
+        textIndex: 0,
         shownText: '',
         blinking: false,
         opacity: 0
@@ -25,14 +40,15 @@
     },
     methods: {
       start() {
-        let text = this.text
+        let text = this.texts[0]
+        this.text = text
         let shownText = this.shownText
         this.blinkCursor()
         this.typeText(text, shownText)
       },
       typeText(text, shownText) {
         if (shownText.length < text.length) {
-          this.blinking = false
+          this.disableBlinking()
           shownText += text.charAt(shownText.length)
           this.shownText = shownText
           setTimeout(() => {
@@ -41,21 +57,28 @@
         }
         else{
           this.blinking = true
-          setTimeout(() => {this.removeText(shownText)}, this.waitForNextTime)
+          setTimeout(() => {this.removeText(shownText)}, this.wait)
         }
       },
       removeText(shownText){
         if(0 < shownText.length){
-          this.blinking = false
+          this.disableBlinking()
           shownText = shownText.slice(0, shownText.length - 1)
           this.shownText = shownText
           setTimeout(() => {this.removeText(shownText)},
               Math.random() * (this.maxSpeed - this.minSpeed) + this.minSpeed)
         }
         else{
+          // No more text in shownText
           this.blinking = true;
-          setTimeout(() => {this.typeText(this.text, this.shownText)}, this.waitForNextTime)
+          this.textIndex = (this.textIndex + 1) % this.texts.length
+          this.text = this.texts[this.textIndex]
+          setTimeout(() => {this.typeText(this.text, this.shownText)}, this.wait)
         }
+      },
+      disableBlinking(){
+        this.blinking = false
+        document.getElementById('textCursor').style.opacity = "1";
       },
       blinkCursor(){
         if(this.blinking) {
@@ -65,11 +88,7 @@
           this.opacity = opacity
           document.getElementById('textCursor').style.opacity = String(this.opacity);
         }
-        else {
-          document.getElementById('textCursor').style.opacity = String(1);
-        }
-        setTimeout(() => {this.blinkCursor()}, 350)
-
+        setTimeout(() => {this.blinkCursor()}, this.blinkSpeed)
       }
     },
     mounted() {
