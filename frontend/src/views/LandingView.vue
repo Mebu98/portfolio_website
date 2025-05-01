@@ -1,11 +1,9 @@
 <template>
   <div id = "LandingView">
-    <div>
+    <div id="selfieSection">
       <h1>Johannes Buitelaar</h1>
-      <div id="selfieSection">
-<!--        <img id="selfie" :src="'assets/images/selfie_bw.jpg'" alt="selfie" style="max-width: 200px">-->
-        <h2 id="selfieTextTyper"><TextTyper v-bind:texts="selfieTexts"/></h2>
-      </div>
+<!--        <img id="selfie" :src="'assets/images/selfie.jpg'" alt="selfie" style="max-width: 200px">-->
+      <h2 id="selfieTextTyper"><TextTyper v-bind:texts="selfieTexts"/></h2>
     </div>
   </div>
 </template>
@@ -13,9 +11,10 @@
 <script setup>
   let selfieTexts = [
       'programmer',
-      'photographer',
       'coffee lover',
-
+      'photographer',
+      'student',
+      'animal lover',
   ]
 </script>
 
