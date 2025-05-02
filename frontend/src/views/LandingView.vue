@@ -11,9 +11,9 @@
 <script setup>
   let selfieTexts = [
       'programmer',
-      'coffee lover',
       'photographer',
       'student',
+      'coffee drinker',
       'animal lover',
   ]
 </script>
